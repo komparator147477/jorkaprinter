@@ -31,7 +31,10 @@ cp maintenance.py "$INSTALL_DIR/$SCRIPT_NAME"
 chmod +x "$INSTALL_DIR/$SCRIPT_NAME"
 
 # 3. Detect Printer
-DEFAULT_PRINTER=$(lpstat -d | cut -d ' ' -f 4)
+DEFAULT_PRINTER=$(lpstat -d 2>/dev/null | sed -n 's/^system default destination: //p')
+if [ -z "$DEFAULT_PRINTER" ]; then
+    DEFAULT_PRINTER=""
+fi
 echo -n "Enter Printer Name [Default: $DEFAULT_PRINTER]: "
 read -r USER_PRINTER
 PRINTER_NAME=${USER_PRINTER:-$DEFAULT_PRINTER}

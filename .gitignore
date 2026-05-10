@@ -3,4 +3,4 @@ __pycache__/
 *.png
 *.log
 .DS_Store
-jorka_temp*
+jorka_*

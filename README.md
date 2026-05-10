@@ -8,17 +8,15 @@ If the printer hasn't been used for a set period (default: 7 days), it automatic
 
 ## Requirements
 
-*   **OS:** Linux
-*   **Printing System:** CUPS (`lp` command)
-*   **Dependencies:** 
-    *   `python3`
-    *   `imagemagick` (for `convert`)
+*   CUPS
+*   Python 3
+*   ImageMagick
 
 ## Installation
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/gleckson/jorkaprinter.git
+    git clone https://github.com/komparator147477/jorkaprinter.git
     cd jorkaprinter
     ```
 
@@ -33,21 +31,17 @@ If the printer hasn't been used for a set period (default: 7 days), it automatic
     ~/.local/bin/jorka-maintenance --force
     ```
 
-## Manual Usage / Configuration
+## Manual Usage
 
 The script is installed to `~/.local/bin/jorka-maintenance`.
 
-```bash
-usage: jorka-maintenance [-h] [--force] [--printer PRINTER] [--days DAYS]
-
-Printer maintenance script.
-
-options:
-  -h, --help         show this help message and exit
-  --force            Force print test page ignoring history.
-  --printer PRINTER  CUPS Printer Name (Auto-detects default if omitted)
-  --days DAYS        Days threshold (Default: 7)
-```
+| Flag | Description |
+|------|-------------|
+| `-h`, `--help` | Show help and exit |
+| `--force` | Print a test page immediately, ignoring history |
+| `--check`, `--status` | Show last-print time and whether maintenance is due (no printing) |
+| `--printer NAME` | CUPS printer name (auto-detects default if omitted) |
+| `--days N` | Days of inactivity before maintenance triggers (default: 7) |
 
 ## Uninstallation
 
